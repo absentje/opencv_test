@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	std::shared_ptr<CVWrapper> lib;
 	try
 	{
-		lib = std::make_shared<CVWrapper>( "CVWrapperImpl.dll" );
+		lib = std::make_shared<CVWrapper>( "BlurAsyncLib.dll" );
 	}
 	catch ( const boost::exception& ex )
 	{
@@ -18,7 +18,12 @@ int main(int argc, char *argv[])
 	if ( !lib ) return 0; // library wasn't uploaded
 
 	auto image = cv::imread( "img.jpg" );
-	auto handle = lib->processAsync( image, cv::Size( 15, 15 ), 4, 4 );
+	BlurParams params;
+	image.copyTo( params.img );
+	params.sigmaX = params.sigmaY = 10.;
+	params.size = cv::Size( 5, 5 );
+
+	auto handle = lib->processAsync( params );
 
 	std::this_thread::sleep_for( std::chrono::milliseconds( 10 ) );
 

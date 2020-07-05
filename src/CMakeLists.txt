@@ -5,9 +5,15 @@ include_directories("${3RDPARTY_DIR}")
 
 find_library(CVWrapper REQUIRED)
 
-add_executable (Main "main.cpp")
-target_link_libraries(Main opencv_highgui CVWrapper)
-INSTALL_TARGET(Main)
+# blurTest.exe
+add_executable (blurTest "blurTest.cpp")
+target_link_libraries(blurTest opencv_highgui CVWrapper)
+INSTALL_TARGET(blurTest)
+
+# erodeTest.exe
+add_executable (erodeTest "erodeTest.cpp")
+target_link_libraries(erodeTest opencv_highgui CVWrapper)
+INSTALL_TARGET(erodeTest)
 
 # copy after create install_dir
 COPY_QT_DLLS()
