@@ -26,8 +26,6 @@ endmacro(COPY_QT_DLLS)
 ################################################################################
 # Macro to copy OpenCV dlls
 ################################################################################
-#find_package( OpenCV REQUIRED )
-
 macro(COPY_CV_DLLS)
 	message("_OpenCV_LIB_PATH: ${_OpenCV_LIB_PATH}")
 
@@ -39,5 +37,13 @@ macro(COPY_CV_DLLS)
 	foreach(CV_DLL_NAME ${CV_DLLS})
 		file(COPY ${CV_DLL_NAME} DESTINATION ${INSTALL_FOLDER})
 	endforeach()
+endmacro(COPY_CV_DLLS)
+################################################################################
+
+################################################################################
+# Macro to copy test images
+################################################################################
+macro(COPY_IMAGES)
+	file(COPY "${CMAKE_SOURCE_DIR}/images" DESTINATION ${INSTALL_FOLDER})
 endmacro(COPY_CV_DLLS)
 ################################################################################

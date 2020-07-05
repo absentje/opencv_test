@@ -18,3 +18,4 @@ INSTALL_TARGET(erodeTest)
 # copy after create install_dir
 COPY_QT_DLLS()
 COPY_CV_DLLS()
+COPY_IMAGES()

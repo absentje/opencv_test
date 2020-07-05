@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <opencv2/opencv.hpp>
 #include <mutex>
-#include "LibParams.h"
+#include "../LibParams.h"
 
 namespace
 {

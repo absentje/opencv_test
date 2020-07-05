@@ -17,11 +17,11 @@ target_include_directories(CVWrapper PUBLIC ${Boost_INCLUDE_DIRS})
 INSTALL_TARGET(CVWrapper)
 
 # BlurAsync (library implementation)
-add_library (BlurAsyncLib SHARED "BlurAsyncLib.cpp")
+add_library (BlurAsyncLib SHARED "private/BlurAsyncLib.cpp")
 target_link_libraries(BlurAsyncLib opencv_highgui ${Boost_LIBRARIES})
 INSTALL_TARGET(BlurAsyncLib)
 
 # ErodeAsync (library implementation)
-add_library (ErodeAsyncLib SHARED "ErodeAsyncLib.cpp")
+add_library (ErodeAsyncLib SHARED "private/ErodeAsyncLib.cpp")
 target_link_libraries(ErodeAsyncLib opencv_highgui ${Boost_LIBRARIES})
 INSTALL_TARGET(ErodeAsyncLib)

@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 
 	if ( !lib ) return 0; // library wasn't uploaded
 
-	auto image = cv::imread( "img.jpeg" );
+	auto image = cv::imread( "images/img.jpeg" );
 
 	ErodeParams params;
 	image.copyTo( params.img );

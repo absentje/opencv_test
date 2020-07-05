@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	}
 	if ( !lib ) return 0; // library wasn't uploaded
 
-	auto image = cv::imread( "img.jpg" );
+	auto image = cv::imread( "images/img.jpg" );
 	BlurParams params;
 	image.copyTo( params.img );
 	params.sigmaX = params.sigmaY = 10.;
