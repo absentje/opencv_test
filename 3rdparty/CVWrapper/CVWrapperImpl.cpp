@@ -12,7 +12,7 @@ std::unordered_map<int, std::future<cv::Mat>> map_; // int - handle
 std::mutex mapMutex;
 }
 
-int blurAsync( const cv::Mat& img, cv::Size size, double sigmaX, double sigmaY )
+int processAsync( const cv::Mat& img, cv::Size size, double sigmaX, double sigmaY )
 {
 	std::lock_guard<std::mutex> lock( mapMutex );
 	++unique_handle;
@@ -26,7 +26,7 @@ int blurAsync( const cv::Mat& img, cv::Size size, double sigmaX, double sigmaY )
 	return unique_handle;
 }
 
-cv::Mat blurResult( int handle )
+cv::Mat waitForResult( int handle )
 {
 	std::future<cv::Mat> result;
 	{
@@ -45,5 +45,5 @@ cv::Mat blurResult( int handle )
 	return result.get();
 }
 
-BOOST_DLL_ALIAS( blurAsync, blurAsyncName )
-BOOST_DLL_ALIAS( blurResult, blurResultName )
+BOOST_DLL_ALIAS( processAsync, processAsyncName )
+BOOST_DLL_ALIAS( waitForResult, waitForResultName )
